@@ -1,0 +1,16 @@
+Basically a computer has multiple processors which permits the threads to be used at the same time.
+
+Application that use multiple threads are called multi threads.
+
+Strategies to Thread Safety :
+(code that can be thread-safe)
+Confinement (not to share data between thread) (restricting data)
+
+Immutability. Calling Immutable objects.
+
+Synchronization. Preventing multiple threads to access to the same thing. we put locks
+Here we can have problems in deadlock.
+
+Atomic class. This helps us thread safe without using locks.
+
+Partitioning.
