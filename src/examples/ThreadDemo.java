@@ -11,8 +11,9 @@ public class ThreadDemo {
         List<DownloadFileTask> tasks = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             var task = new DownloadFileTask();
-            task.ad
-            var thread = new Thread(new DownloadFileTask());
+            tasks.add(task);
+
+            var thread = new Thread(task);
             thread.start();
             threads.add(thread);
         }
@@ -24,7 +25,12 @@ public class ThreadDemo {
                 e.printStackTrace();
             }
         }
-        System.out.println(status.getTotalBytes());
+
+        var totalBytes =
+                tasks.stream()
+                        .map(t -> t.getStatus().getTotalBytes()).reduce(Integer::sum);
+        System.out.println(totalBytes);
+
         //===========================================================================================
 //        List<Thread> threads = new ArrayList<>();
 //        var status = new DownloadStatus();
